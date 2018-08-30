@@ -47,6 +47,9 @@ def count_combinations2(
         current_combo: tuple = None
         ):
     """
+    Basically the same as count_combinations1 but don't pass the
+    combinations count through the stack.
+
     denominations is assumed to be sorted.
 
     """
@@ -89,6 +92,9 @@ def count_combinations3(
         current_combo: tuple = None
         ):
     """
+    Replace the loop over the number of times a coin fits into amount
+    with more recursion.
+
     denominations is assumed to be sorted.
 
     """
