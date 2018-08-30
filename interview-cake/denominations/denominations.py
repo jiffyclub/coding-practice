@@ -103,9 +103,7 @@ def count_combinations3(
     current_combo = current_combo or tuple()
 
     for idx, coin in enumerate(denominations):
-        fit_times = amount // coin
-
-        if fit_times == 0:
+        if coin > amount:
             # won't find any additional combinations
             return combinations
         elif coin == amount:
