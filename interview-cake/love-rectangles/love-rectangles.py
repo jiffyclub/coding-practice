@@ -48,12 +48,14 @@ def rect_intersection(rect1: Rectangle, rect2: Rectangle) -> Rectangle:
     (Makes this incompatible with rectangles in negative space.)
 
     """
+    # check whether there is any overlap at all
     if (rect1.bottom >= rect2.top
             or rect2.bottom >= rect1.top
             or rect1.left >= rect2.right
             or rect2.left >= rect1.right):
         return Rectangle(-2, -1, -2, -1)
 
+    # there is overlap! calculate the resulting rectangle.
     left = max(rect1.left, rect2.left)
     bottom = max(rect1.bottom, rect2.bottom)
     top = min(rect1.top, rect2.top)
