@@ -64,6 +64,36 @@ def kth_to_last_node(position, head):
     return linked_to_list(head)[-position]
 
 
+def linked_list_len(node):
+    count = 0
+
+    while node:
+        count += 1
+        node = node.next
+
+    return count
+
+
+def kth_to_last_node2(position, head):
+    list_len = linked_list_len(head)
+    ordinal_position = list_len - position
+
+    if ordinal_position < 0:
+        raise ValueError(f'position {position} not in list')
+
+    index = 0
+    node = head
+
+    while node:
+        if index == ordinal_position:
+            return node
+
+        index += 1
+        node = node.next
+    else:
+        raise RuntimeError('position {position} not found')
+
+
 a = LinkedListNode("Angel Food")
 b = LinkedListNode("Bundt")
 c = LinkedListNode("Cheese")
@@ -76,3 +106,4 @@ c.next = d
 d.next = e
 
 print(kth_to_last_node(2, a), "Devil's Food")  # Expected to be "Devil's Food"
+print(kth_to_last_node2(2, a), "Devil's Food")  # Expected to be "Devil's Food"
