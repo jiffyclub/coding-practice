@@ -35,11 +35,10 @@ class Queue:
         self.enqueue_stack = Stack()
 
     def enqueue(self, item):
-        if self.dequeue_stack:
-            # need to transfer items from the dequeue stack to
-            # the enqueue stack (reversing them in the process)
-            while self.dequeue_stack:
-                self.enqueue_stack.push(self.dequeue_stack.pop())
+        # need to transfer items from the dequeue stack to
+        # the enqueue stack (reversing them in the process)
+        while self.dequeue_stack:
+            self.enqueue_stack.push(self.dequeue_stack.pop())
 
         self.enqueue_stack.push(item)
 
@@ -47,11 +46,11 @@ class Queue:
         if not self.dequeue_stack and not self.enqueue_stack:
             # no items in the queue
             raise RuntimeError('Queue is empty')
-        elif self.enqueue_stack:
-            # need to transfer items from the enqueue stack to
-            # the dequeue stack (reversing them in the process)
-            while self.enqueue_stack:
-                self.dequeue_stack.push(self.enqueue_stack.pop())
+
+        # need to transfer items from the enqueue stack to
+        # the dequeue stack (reversing them in the process)
+        while self.enqueue_stack:
+            self.dequeue_stack.push(self.enqueue_stack.pop())
 
         return self.dequeue_stack.pop()
 
