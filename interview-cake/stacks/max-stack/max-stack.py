@@ -113,3 +113,16 @@ print(ms.get_max(), 'expected', 2)
 
 ms.pop()
 print(ms.get_max(), 'expected', 1)
+
+print('\n')
+
+ms = MaxStack()
+
+ms.push(5)
+ms.push(-2)
+ms.push(3)
+print(ms.get_max(), 'expected', 5)
+ms.pop()
+print(ms.get_max(), 'expected', 5)
+ms.pop()
+print(ms.get_max(), 'expected', 5)
